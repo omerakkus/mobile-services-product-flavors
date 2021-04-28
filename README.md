@@ -26,7 +26,6 @@ Currently added services: `map`, `location`, `scan`, `voice`, `analytics` and `p
 - Move to agconnect.json file in base "app/google" folder that under your android project.
 - Go to app level gradle file and change application id of your android project. It must be same with app id on AppGallery console you defined.
 
-
 ### How to Use
 1- The following code has been added to the `app gradle` module. The code snippet below should be added to every module that uses huawei and google product flavors in the project.
 ```gradle
@@ -47,17 +46,17 @@ Currently added services: `map`, `location`, `scan`, `voice`, `analytics` and `p
 
 2- `HuaweiDebug`-`HuaweiRelease`-`GoogleDebug`-`GoogleRelease` options will appear in the Build Variant section as shown in the image below.
 
-![Build Variants](/uploads/30e53f64468de2ca5a83a751d480b46b/sss1.PNG)
+![Build Variants](https://user-images.githubusercontent.com/32914909/116357655-66ec5800-a805-11eb-8c87-83e86ce2f618.PNG)
 
 
 3- A new module named a new `map` has been created to make an example. 
 * Two packages were created, namely `huawei` and `google`. Under these, a sub-package was created like the `same path with the application id` created in the app gradle file. In the picture below, the Huawei build variant is active. When the files are examined, you can see that the color of the java file under the huawei package is blue. This means huawei build variant is active at the moment.
 
-<img src="/uploads/0b75455349d2bef0880b26afc8e4d25d/sss2.PNG" width="550" height="600">
+<img src="https://user-images.githubusercontent.com/32914909/116357659-6784ee80-a805-11eb-88fa-efcf642e55a3.PNG" width="550" height="600">
 
 4- Two packages named huawei and google were created in the `app module` of the project. Below these are the `google-services.json` file required for google services and the `agconnect-services.json` file required for huawei services. In this way, whichever service will be used, the corresponding json file will be used. You can see the example usage in the image below.
 
-<img src="/uploads/cd3c5f727604a5feb6819cc31b8457c7/sss3.PNG" width="559" height="422">
+<img src="https://user-images.githubusercontent.com/32914909/116357663-681d8500-a805-11eb-8a30-6b6ac35f77cb.PNG" width="559" height="422">
 
 5- There are lines of code that must be added to use Google and Huawei services. Google and huawei control the product flavor, preventing unnecessary libraries from loading as below.
 
@@ -118,7 +117,7 @@ googleImplementation 'com.google.firebase:firebase-messaging-ktx:21.0.1'
 
 6- Common codes to be used by both google and huawei product flavor were used in the main package. Parts where Huawei or Google services were used were used under their own packages. In the image below, you can see the code structure used in common and the code structure used for huawei product flavor.
 
-<img src="/uploads/650f0968e75f271f19142f275a5cea75/sss5.PNG" width="546" height="630">
+<img src="https://user-images.githubusercontent.com/32914909/116357667-68b61b80-a805-11eb-881d-db9fd27173a3.PNG" width="546" height="630">
 
 The classes used separately in the `Huawei` and `Google` product flavor structure `must have the same name`. Below you can see the example of `MapMarker` class for google and huawei product variant.
 
