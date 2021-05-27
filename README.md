@@ -255,3 +255,20 @@ if (requestCode == speechToTextResultCode) {
     }
 } 
 ```
+
+### Automated Notification
+[Automated notification](https://developer.huawei.com/consumer/en/doc/development/HMSCore-Guides/automated-notifications-0000001051072150) feature is used to automatically send push notifications to users under a suitable scenario within the scope of the Push service. In this project, the Automated push notification feature was implemented over the Geofence scenario. Automated Push Notification feature automatically sends a push notification to the user when the user enters, exits, or stays within the diameter determined by the location of the user within a diameter determined by Geofence. Thanks to this service, push notification sending processes of geofence transactions are performed faster and simpler on the Console side.
+In order to use Automated Notification feature for the Geofence scenario, you must first enter the Push Kit page on the Console side, click on the Automated notifications tab, and then click on the New geofence push task button. After entering the necessary information in the notification message on the page that opens, we must select the Geofence group to which we want to send the notification from the Group section. If you have not created any Geofence group before, click the Geofences button to direct you to the relevant Geofence management page. This page shows previously created Geofences groups and geofences records. A new group should be created by clicking on the Groups tab. After creating a group, click on the Geofences tab again and click the New button to open the page where we will enter the information regarding the Geofence record that we will create. On the geofence creation page, we first need to name our geofence record. Afterwards, the group we created should be selected. Finally, we must specify the latitude and longitude information of the location to which the notification will be sent to the user and how much area it will cover. In the Trigger section, we choose which event will trigger the geofence. If you want to send a notification when the user enters the specified area, click the Submit button by selecting the Enter option. After these operations, the processes on the geofence management page are completed. We create our push notification message by following the Push Kit -> Automated notifications -> New Geofence push task path again. In the Group section, we select the group we created earlier and the relevant geofence is selected automatically. You can then determine the total number of messages sent to a device within a certain period of time. The push period is determined as a maximum of 30 days. Finally, you can activate the automated push feature by selecting the start and end time interval.
+In order to use this feature, the user's location permission should be obtained for the `AndroidManifest.xml` file of our application and the user's location should be listened to continuously. Therefore, it is very important to define the relevant permissions.
+
+`<uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />`
+
+`<uses-permission android:name="android.permission.ACCESS_BACKGROUND_LOCATION" />`
+
+<table>
+  <tbody>
+    <tr>
+      <td><img src="https://user-images.githubusercontent.com/26767657/119719288-4568a580-be71-11eb-934b-9d9a31b67dd2.jpg" width=250px></td>
+    </tr>
+  </tbody>
+ </table>
